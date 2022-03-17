@@ -2271,11 +2271,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Muhammad Musab\\Desktop\\NetflixPracticeProject\\NetfilxPractice\\NetfilxPractice\\NetfilxPractice.csproj",
+      "projectUniqueName": "C:\\Users\\Muhammad Musab\\Desktop\\NetflixPractice\\NetfilxPractice\\NetfilxPractice\\NetfilxPractice.csproj",
       "projectName": "NetfilxPractice",
-      "projectPath": "C:\\Users\\Muhammad Musab\\Desktop\\NetflixPracticeProject\\NetfilxPractice\\NetfilxPractice\\NetfilxPractice.csproj",
+      "projectPath": "C:\\Users\\Muhammad Musab\\Desktop\\NetflixPractice\\NetfilxPractice\\NetfilxPractice\\NetfilxPractice.csproj",
       "packagesPath": "C:\\Users\\Muhammad Musab\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Muhammad Musab\\Desktop\\NetflixPracticeProject\\NetfilxPractice\\NetfilxPractice\\obj\\",
+      "outputPath": "C:\\Users\\Muhammad Musab\\Desktop\\NetflixPractice\\NetfilxPractice\\NetfilxPractice\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Muhammad Musab\\AppData\\Roaming\\NuGet\\NuGet.Config",
