@@ -48,11 +48,33 @@ namespace NetfilxPractice.Data
                 .WithMany(show => show.WatchingShows)
                 .HasForeignKey(wUserShow => wUserShow.WatchingShowId);
 
+            ////Many to Many for the WatchList of movies to Users
+            builder.Entity<WatchUserMovie>()
+                .HasOne(wum => wum.User)
+                .WithMany(user => user.WatchingMovies)
+                .HasForeignKey(wum => wum.UserId);
+            builder.Entity<WatchUserMovie>()
+                .HasOne(wum => wum.WatchingMovie)
+                .WithMany(show => show.WatchingMovies)
+                .HasForeignKey(wum => wum.WatchingMovieId);
+
+            ////Many To Many For FavouriteList of Shows to User
+            builder.Entity<FavouriteUserMovie>()
+                .HasOne(fum => fum.User)
+                .WithMany(user => user.FavouriteMovies)
+                .HasForeignKey(fum => fum.UserId);
+            builder.Entity<FavouriteUserMovie>()
+                .HasOne(fum => fum.FavouriteMovie)
+                .WithMany(favouriteMovie => favouriteMovie.FavouriteMovies)
+                .HasForeignKey(fum => fum.FavouriteMovieId);
+
         }
         public DbSet<Movie> Movie { get; set; }
         public DbSet<Episode> Episode { get; set;}
         public DbSet<Show> Show { get; set; }
         public DbSet<FavouriteUserShow> FavouriteUserShow { get; set; }
         public DbSet<WatchUserShow> WatchUserShow { get; set; }
+        public DbSet<WatchUserMovie> WatchUserMovie { get; set; }
+        public DbSet<FavouriteUserMovie> FavouriteUserMovie { get; set;}
     }
 }

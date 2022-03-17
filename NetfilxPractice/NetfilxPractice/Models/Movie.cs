@@ -5,6 +5,13 @@
         public int Id { get; set; }
         public string Title { get; set; }
         public float Duration { get; set; }
+        public ICollection<FavouriteUserMovie> FavouriteMovies { get; set;}
+        public ICollection<WatchUserMovie> WatchingMovies { get; set; }
+        public Movie()
+        {
+            FavouriteMovies = new HashSet<FavouriteUserMovie>();
+            WatchingMovies = new HashSet<WatchUserMovie>();
+        }
     }
 }
 
