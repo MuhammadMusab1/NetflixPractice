@@ -7,8 +7,18 @@
         public float Duration { get; set; }
         public ICollection<FavouriteUserMovie> FavouriteMovies { get; set;}
         public ICollection<WatchUserMovie> WatchingMovies { get; set; }
-        public Movie()
+        public Movie()//never used constructor (only did this to avoid this warings)
         {
+            Title = "";
+            Duration = 0;
+            Id = 0;
+            FavouriteMovies = new HashSet<FavouriteUserMovie>();
+            WatchingMovies = new HashSet<WatchUserMovie>();
+        }
+        public Movie(string title, float duration)
+        {
+            Title = title;
+            Duration = duration;
             FavouriteMovies = new HashSet<FavouriteUserMovie>();
             WatchingMovies = new HashSet<WatchUserMovie>();
         }

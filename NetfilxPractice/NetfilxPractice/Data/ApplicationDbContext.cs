@@ -70,7 +70,7 @@ namespace NetfilxPractice.Data
 
         }
         public DbSet<Movie> Movie { get; set; }
-        public DbSet<Episode> Episode { get; set;}
+        public DbSet<Episode> Episode { get; set;} //will not show up in the db but i will use it in my mvc
         public DbSet<Show> Show { get; set; }
         public DbSet<FavouriteUserShow> FavouriteUserShow { get; set; }
         public DbSet<WatchUserShow> WatchUserShow { get; set; }

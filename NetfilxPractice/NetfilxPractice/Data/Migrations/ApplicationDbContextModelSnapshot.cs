@@ -245,7 +245,7 @@ namespace NetfilxPractice.Data.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("FavouriteUserMovie");
+                    b.ToTable("FavouriteUserMovie", (string)null);
                 });
 
             modelBuilder.Entity("NetfilxPractice.Models.FavouriteUserShow", b =>
@@ -269,7 +269,7 @@ namespace NetfilxPractice.Data.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("FavouriteUserShow");
+                    b.ToTable("FavouriteUserShow", (string)null);
                 });
 
             modelBuilder.Entity("NetfilxPractice.Models.Movie", b =>
@@ -293,7 +293,7 @@ namespace NetfilxPractice.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Movie");
+                    b.ToTable("Movie", (string)null);
 
                     b.HasDiscriminator<string>("Discriminator").HasValue("Movie");
                 });
@@ -318,7 +318,7 @@ namespace NetfilxPractice.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Show");
+                    b.ToTable("Show", (string)null);
                 });
 
             modelBuilder.Entity("NetfilxPractice.Models.WatchUserMovie", b =>
@@ -342,7 +342,7 @@ namespace NetfilxPractice.Data.Migrations
 
                     b.HasIndex("WatchingMovieId");
 
-                    b.ToTable("WatchUserMovie");
+                    b.ToTable("WatchUserMovie", (string)null);
                 });
 
             modelBuilder.Entity("NetfilxPractice.Models.WatchUserShow", b =>
@@ -366,7 +366,7 @@ namespace NetfilxPractice.Data.Migrations
 
                     b.HasIndex("WatchingShowId");
 
-                    b.ToTable("WatchUserShow");
+                    b.ToTable("WatchUserShow", (string)null);
                 });
 
             modelBuilder.Entity("NetfilxPractice.Models.Episode", b =>
