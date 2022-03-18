@@ -1,6 +1,6 @@
 ﻿namespace NetfilxPractice.Models
 {
-    public class Episode : Movie //inherits from Movie (Id, Duration, Title)
+    public class Episode : Media //inherits abstract class Media
     { 
         public int ShowId { get; set; }
         public Show Show { get; set; }

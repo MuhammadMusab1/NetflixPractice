@@ -75,19 +75,18 @@ namespace NetfilxPractice.Models
                 context.Show.Add(show1);
                 context.Show.Add(show2);
 
-                //add all episode to context
-                context.Movie.Add(show1Ep1);
-                context.Movie.Add(show1Ep2);
-                context.Movie.Add(show1Ep3);
-                context.Movie.Add(show1Ep4);
-                context.Movie.Add(show1Ep5);
+                //add all episodes to context
+                context.Episode.Add(show1Ep1);
+                context.Episode.Add(show1Ep2);
+                context.Episode.Add(show1Ep3);
+                context.Episode.Add(show1Ep4);
+                context.Episode.Add(show1Ep5);
 
-                context.Movie.Add(show2Ep1);
-                context.Movie.Add(show2Ep2);
-                context.Movie.Add(show2Ep3);
-                context.Movie.Add(show2Ep4);
-                context.Movie.Add(show2Ep5);
-
+                context.Episode.Add(show2Ep1);
+                context.Episode.Add(show2Ep2);
+                context.Episode.Add(show2Ep3);
+                context.Episode.Add(show2Ep4);
+                context.Episode.Add(show2Ep5);
                 //add all episode to Episode DbSet
                 context.Episode.Add(show1Ep1);
                 context.Episode.Add(show1Ep2);

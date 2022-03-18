@@ -1,13 +1,13 @@
 ﻿namespace NetfilxPractice.Models
 {
-    public class Movie
+    public class Movie : Media //inherits from abstract class Media
     {
-        public int Id { get; set; }
-        public string Title { get; set; }
-        public float Duration { get; set; }
+        //public int Id { get; set; }
+        //public string Title { get; set; }
+        //public float Duration { get; set; }
         public ICollection<FavouriteUserMovie> FavouriteMovies { get; set;}
         public ICollection<WatchUserMovie> WatchingMovies { get; set; }
-        public Movie()//never used constructor (only did this to avoid this warings)
+        public Movie()//never used constructor (only did this to avoid warings)
         {
             Title = "";
             Duration = 0;

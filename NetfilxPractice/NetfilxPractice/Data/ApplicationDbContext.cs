@@ -17,7 +17,7 @@ namespace NetfilxPractice.Data
             builder.Entity<Movie>().HasKey(movie => movie.Id);
             builder.Entity<FavouriteUserShow>().HasKey(userShow => userShow.Id);
 
-            //One to Many between Show and Episode(Movie)
+            //One to Many between Show and Episode
             builder.Entity<Show>()
                 .HasMany(show => show.Episodes)
                 .WithOne(episode => episode.Show)
@@ -69,8 +69,9 @@ namespace NetfilxPractice.Data
                 .HasForeignKey(fum => fum.FavouriteMovieId);
 
         }
+        //Concrete Class Ony (no abstract class is used in DbSet)
         public DbSet<Movie> Movie { get; set; }
-        public DbSet<Episode> Episode { get; set;} //will not show up in the db but i will use it in my mvc
+        public DbSet<Episode> Episode { get; set;}
         public DbSet<Show> Show { get; set; }
         public DbSet<FavouriteUserShow> FavouriteUserShow { get; set; }
         public DbSet<WatchUserShow> WatchUserShow { get; set; }
