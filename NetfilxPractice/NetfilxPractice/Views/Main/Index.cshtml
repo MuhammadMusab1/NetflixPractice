@@ -1,0 +1,65 @@
+﻿@using NetfilxPractice.ViewModel
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@model MovieAndShowViewModel
+
+<h1>Movies</h1>
+
+<ul>
+    @foreach(Movie movie in Model.AllMovies)
+    {
+        <li style="display: flex;margin: 2rem 0;">
+            @movie.Title
+            <form asp-action="AddMovieToUserWatchList" method="get" style="margin: 0 2rem;">
+                <input type="hidden" name="movieId" value="@movie.Id"/>
+                <button type="submit">
+                    Add To Watch List
+                </button>
+            </form>
+            <form asp-action="AddMovieToUserFavouriteList" method="get" style="margin: 0 2rem;">
+                <input type="hidden" name="movieId" value="@movie.Id"/>
+                <button type="submit">
+                    Add To Favourite List
+                </button>
+            </form>
+        </li>
+    }
+</ul>
+
+<h1>Shows</h1>
+
+<ul>
+    @foreach(Show show in Model.AllShows)
+    {
+        int counter = 0;
+        <li style="display: flex;margin: 2rem 0;">
+            <h3>@show.ShowName</h3>
+            <form asp-action="AddShowToUserWatchList" method="get" style="margin: 0 2rem;">
+                 <input type="hidden" name="episodeId" value="@show.Id"/>
+                 <button type="submit">
+                     Add To Watch List
+                 </button>
+             </form>
+             <form asp-action="AddShowToUserFavouriteList" method="get" style="margin: 0 2rem;">
+                   <input type="hidden" name="episodeId" value="@show.Id"/>
+                   <button type="submit">
+                       Add To Favourite List
+                   </button>
+             </form>
+
+       </li>
+        <ul>
+            @foreach(Episode episode in show.Episodes)
+            {
+                counter++;
+                <li style="display: flex;margin: 2rem 0;">
+                    <div>Episode @counter: @episode.Title</div>
+                </li>
+            }   
+        </ul>
+
+    }
+</ul>

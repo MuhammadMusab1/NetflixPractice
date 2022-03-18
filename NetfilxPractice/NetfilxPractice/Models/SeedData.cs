@@ -42,8 +42,8 @@ namespace NetfilxPractice.Models
             }
             if(!context.Show.Any())
             {
-                Show show1 = new Show("Family Guy", ShowType.Comedy, 12);
-                Show show2 = new Show("Peaky Blinder Season 6", ShowType.Thriller, 12);
+                Show show1 = new Show("Family Guy", "Comedy", 5);
+                Show show2 = new Show("Peaky Blinder Season 6", "Thriller", 5);
 
                 //Show1 Episodes
                 Episode show1Ep1 = new Episode("Glen's Secret", 20, show1);
