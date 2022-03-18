@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using NetfilxPractice.Data;
 
@@ -11,9 +12,10 @@ using NetfilxPractice.Data;
 namespace NetfilxPractice.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20220317233443_AddFavouriteUserMovieAndWatchUserMovieTables")]
+    partial class AddFavouriteUserMovieAndWatchUserMovieTables
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -224,30 +226,6 @@ namespace NetfilxPractice.Data.Migrations
                     b.ToTable("AspNetUsers", (string)null);
                 });
 
-            modelBuilder.Entity("NetfilxPractice.Models.Episode", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
-
-                    b.Property<float>("Duration")
-                        .HasColumnType("real");
-
-                    b.Property<int>("ShowId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Title")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("ShowId");
-
-                    b.ToTable("Episode");
-                });
-
             modelBuilder.Entity("NetfilxPractice.Models.FavouriteUserMovie", b =>
                 {
                     b.Property<int>("Id")
@@ -304,15 +282,22 @@ namespace NetfilxPractice.Data.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
+                    b.Property<string>("Discriminator")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<float>("Duration")
                         .HasColumnType("real");
 
                     b.Property<string>("Title")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
                     b.ToTable("Movie");
+
+                    b.HasDiscriminator<string>("Discriminator").HasValue("Movie");
                 });
 
             modelBuilder.Entity("NetfilxPractice.Models.Show", b =>
@@ -327,9 +312,8 @@ namespace NetfilxPractice.Data.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("ShowType")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("ShowType")
+                        .HasColumnType("int");
 
                     b.Property<int>("TotalEpisodes")
                         .HasColumnType("int");
@@ -387,6 +371,18 @@ namespace NetfilxPractice.Data.Migrations
                     b.ToTable("WatchUserShow");
                 });
 
+            modelBuilder.Entity("NetfilxPractice.Models.Episode", b =>
+                {
+                    b.HasBaseType("NetfilxPractice.Models.Movie");
+
+                    b.Property<int>("ShowId")
+                        .HasColumnType("int");
+
+                    b.HasIndex("ShowId");
+
+                    b.HasDiscriminator().HasValue("Episode");
+                });
+
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
                 {
                     b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole", null)
@@ -436,17 +432,6 @@ namespace NetfilxPractice.Data.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-                });
-
-            modelBuilder.Entity("NetfilxPractice.Models.Episode", b =>
-                {
-                    b.HasOne("NetfilxPractice.Models.Show", "Show")
-                        .WithMany("Episodes")
-                        .HasForeignKey("ShowId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Show");
                 });
 
             modelBuilder.Entity("NetfilxPractice.Models.FavouriteUserMovie", b =>
@@ -523,6 +508,17 @@ namespace NetfilxPractice.Data.Migrations
                     b.Navigation("User");
 
                     b.Navigation("WatchingShow");
+                });
+
+            modelBuilder.Entity("NetfilxPractice.Models.Episode", b =>
+                {
+                    b.HasOne("NetfilxPractice.Models.Show", "Show")
+                        .WithMany("Episodes")
+                        .HasForeignKey("ShowId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Show");
                 });
 
             modelBuilder.Entity("NetfilxPractice.Models.ApplicationUser", b =>
