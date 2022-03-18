@@ -38,13 +38,13 @@
         <li style="display: flex;margin: 2rem 0;">
             <h3>@show.ShowName</h3>
             <form asp-action="AddShowToUserWatchList" method="get" style="margin: 0 2rem;">
-                 <input type="hidden" name="episodeId" value="@show.Id"/>
+                 <input type="hidden" name="showId" value="@show.Id"/>
                  <button type="submit">
                      Add To Watch List
                  </button>
              </form>
              <form asp-action="AddShowToUserFavouriteList" method="get" style="margin: 0 2rem;">
-                   <input type="hidden" name="episodeId" value="@show.Id"/>
+                   <input type="hidden" name="showId" value="@show.Id"/>
                    <button type="submit">
                        Add To Favourite List
                    </button>
@@ -57,9 +57,12 @@
                 counter++;
                 <li style="display: flex;margin: 2rem 0;">
                     <div>Episode @counter: @episode.Title</div>
+
                 </li>
             }   
         </ul>
 
     }
 </ul>
+
+<h3><a asp-action="UserInfo">User Info</a></h3>
