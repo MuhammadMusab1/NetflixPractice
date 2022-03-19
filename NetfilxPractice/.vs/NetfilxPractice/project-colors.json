@@ -5,6 +5,11 @@
       "ProjectGuid": "3029bb80-0021-4640-9f2c-031233bf7a81",
       "DisplayName": "NetfilxPractice",
       "ColorIndex": 0
+    },
+    "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3": {
+      "ProjectGuid": "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3",
+      "DisplayName": "杂项文件",
+      "ColorIndex": -1
     }
   },
   "NextColorIndex": 1

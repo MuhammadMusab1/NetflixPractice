@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Muhammad Musab\\Desktop\\NetflixPracticeProject\\NetfilxPractice\\NetfilxPractice\\NetfilxPractice.csproj": {}
+    "C:\\Users\\mayxi\\OneDrive\\Desktop\\NetflixPractice\\NetfilxPractice\\NetfilxPractice\\NetfilxPractice.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Muhammad Musab\\Desktop\\NetflixPracticeProject\\NetfilxPractice\\NetfilxPractice\\NetfilxPractice.csproj": {
+    "C:\\Users\\mayxi\\OneDrive\\Desktop\\NetflixPractice\\NetfilxPractice\\NetfilxPractice\\NetfilxPractice.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Muhammad Musab\\Desktop\\NetflixPracticeProject\\NetfilxPractice\\NetfilxPractice\\NetfilxPractice.csproj",
+        "projectUniqueName": "C:\\Users\\mayxi\\OneDrive\\Desktop\\NetflixPractice\\NetfilxPractice\\NetfilxPractice\\NetfilxPractice.csproj",
         "projectName": "NetfilxPractice",
-        "projectPath": "C:\\Users\\Muhammad Musab\\Desktop\\NetflixPracticeProject\\NetfilxPractice\\NetfilxPractice\\NetfilxPractice.csproj",
-        "packagesPath": "C:\\Users\\Muhammad Musab\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Muhammad Musab\\Desktop\\NetflixPracticeProject\\NetfilxPractice\\NetfilxPractice\\obj\\",
+        "projectPath": "C:\\Users\\mayxi\\OneDrive\\Desktop\\NetflixPractice\\NetfilxPractice\\NetfilxPractice\\NetfilxPractice.csproj",
+        "packagesPath": "C:\\Users\\mayxi\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\mayxi\\OneDrive\\Desktop\\NetflixPractice\\NetfilxPractice\\NetfilxPractice\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Muhammad Musab\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\mayxi\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -67,6 +67,10 @@
               "suppressParent": "All",
               "target": "Package",
               "version": "[6.0.3, )"
+            },
+            "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
+              "target": "Package",
+              "version": "[6.0.2, )"
             }
           },
           "imports": [

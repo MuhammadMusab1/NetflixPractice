@@ -17,7 +17,7 @@ namespace NetfilxPractice.Data.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "3.0.0")
+                .HasAnnotation("ProductVersion", "6.0.3")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
@@ -72,71 +72,6 @@ namespace NetfilxPractice.Data.Migrations
                     b.HasIndex("RoleId");
 
                     b.ToTable("AspNetRoleClaims", (string)null);
-                });
-
-            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUser", b =>
-                {
-                    b.Property<string>("Id")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<int>("AccessFailedCount")
-                        .HasColumnType("int");
-
-                    b.Property<string>("ConcurrencyStamp")
-                        .IsConcurrencyToken()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Email")
-                        .HasMaxLength(256)
-                        .HasColumnType("nvarchar(256)");
-
-                    b.Property<bool>("EmailConfirmed")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("LockoutEnabled")
-                        .HasColumnType("bit");
-
-                    b.Property<DateTimeOffset?>("LockoutEnd")
-                        .HasColumnType("datetimeoffset");
-
-                    b.Property<string>("NormalizedEmail")
-                        .HasMaxLength(256)
-                        .HasColumnType("nvarchar(256)");
-
-                    b.Property<string>("NormalizedUserName")
-                        .HasMaxLength(256)
-                        .HasColumnType("nvarchar(256)");
-
-                    b.Property<string>("PasswordHash")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("PhoneNumber")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<bool>("PhoneNumberConfirmed")
-                        .HasColumnType("bit");
-
-                    b.Property<string>("SecurityStamp")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<bool>("TwoFactorEnabled")
-                        .HasColumnType("bit");
-
-                    b.Property<string>("UserName")
-                        .HasMaxLength(256)
-                        .HasColumnType("nvarchar(256)");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("NormalizedEmail")
-                        .HasDatabaseName("EmailIndex");
-
-                    b.HasIndex("NormalizedUserName")
-                        .IsUnique()
-                        .HasDatabaseName("UserNameIndex")
-                        .HasFilter("[NormalizedUserName] IS NOT NULL");
-
-                    b.ToTable("AspNetUsers", (string)null);
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<string>", b =>
@@ -224,6 +159,223 @@ namespace NetfilxPractice.Data.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
+            modelBuilder.Entity("NetfilxPractice.Models.ApplicationUser", b =>
+                {
+                    b.Property<string>("Id")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<int>("AccessFailedCount")
+                        .HasColumnType("int");
+
+                    b.Property<string>("ConcurrencyStamp")
+                        .IsConcurrencyToken()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Email")
+                        .HasMaxLength(256)
+                        .HasColumnType("nvarchar(256)");
+
+                    b.Property<bool>("EmailConfirmed")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("LockoutEnabled")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTimeOffset?>("LockoutEnd")
+                        .HasColumnType("datetimeoffset");
+
+                    b.Property<string>("NormalizedEmail")
+                        .HasMaxLength(256)
+                        .HasColumnType("nvarchar(256)");
+
+                    b.Property<string>("NormalizedUserName")
+                        .HasMaxLength(256)
+                        .HasColumnType("nvarchar(256)");
+
+                    b.Property<string>("PasswordHash")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("PhoneNumber")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("PhoneNumberConfirmed")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("SecurityStamp")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("TwoFactorEnabled")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("UserName")
+                        .HasMaxLength(256)
+                        .HasColumnType("nvarchar(256)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("NormalizedEmail")
+                        .HasDatabaseName("EmailIndex");
+
+                    b.HasIndex("NormalizedUserName")
+                        .IsUnique()
+                        .HasDatabaseName("UserNameIndex")
+                        .HasFilter("[NormalizedUserName] IS NOT NULL");
+
+                    b.ToTable("AspNetUsers", (string)null);
+                });
+
+            modelBuilder.Entity("NetfilxPractice.Models.FavouriteMovie", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<int>("MovieId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("UserId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("MovieId");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("FavouriteMovies");
+                });
+
+            modelBuilder.Entity("NetfilxPractice.Models.FavouriteShow", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<int>("ShowId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("UserId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ShowId");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("FavouriteShows");
+                });
+
+            modelBuilder.Entity("NetfilxPractice.Models.Movie", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<string>("Discriminator")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Length")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Title")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Movies");
+
+                    b.HasDiscriminator<string>("Discriminator").HasValue("Movie");
+                });
+
+            modelBuilder.Entity("NetfilxPractice.Models.Show", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<string>("Title")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Shows");
+                });
+
+            modelBuilder.Entity("NetfilxPractice.Models.WatchMovie", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<int>("MovieId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("UserId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("MovieId");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("WatchMovies");
+                });
+
+            modelBuilder.Entity("NetfilxPractice.Models.WatchShow", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<int>("ShowId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("UserId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ShowId");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("WatchShows");
+                });
+
+            modelBuilder.Entity("NetfilxPractice.Models.Episode", b =>
+                {
+                    b.HasBaseType("NetfilxPractice.Models.Movie");
+
+                    b.Property<int>("ShowId")
+                        .HasColumnType("int");
+
+                    b.HasIndex("ShowId");
+
+                    b.HasDiscriminator().HasValue("Episode");
+                });
+
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
                 {
                     b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole", null)
@@ -235,7 +387,7 @@ namespace NetfilxPractice.Data.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<string>", b =>
                 {
-                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityUser", null)
+                    b.HasOne("NetfilxPractice.Models.ApplicationUser", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -244,7 +396,7 @@ namespace NetfilxPractice.Data.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<string>", b =>
                 {
-                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityUser", null)
+                    b.HasOne("NetfilxPractice.Models.ApplicationUser", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -259,7 +411,7 @@ namespace NetfilxPractice.Data.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityUser", null)
+                    b.HasOne("NetfilxPractice.Models.ApplicationUser", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -268,11 +420,125 @@ namespace NetfilxPractice.Data.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<string>", b =>
                 {
-                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityUser", null)
+                    b.HasOne("NetfilxPractice.Models.ApplicationUser", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+                });
+
+            modelBuilder.Entity("NetfilxPractice.Models.FavouriteMovie", b =>
+                {
+                    b.HasOne("NetfilxPractice.Models.Movie", "Movie")
+                        .WithMany("FavouriteUsers")
+                        .HasForeignKey("MovieId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("NetfilxPractice.Models.ApplicationUser", "User")
+                        .WithMany("FavouriteMovieList")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Movie");
+
+                    b.Navigation("User");
+                });
+
+            modelBuilder.Entity("NetfilxPractice.Models.FavouriteShow", b =>
+                {
+                    b.HasOne("NetfilxPractice.Models.Show", "Show")
+                        .WithMany("FavouriteUsers")
+                        .HasForeignKey("ShowId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("NetfilxPractice.Models.ApplicationUser", "User")
+                        .WithMany("FavouriteShowList")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Show");
+
+                    b.Navigation("User");
+                });
+
+            modelBuilder.Entity("NetfilxPractice.Models.WatchMovie", b =>
+                {
+                    b.HasOne("NetfilxPractice.Models.Movie", "Movie")
+                        .WithMany("WatchUsers")
+                        .HasForeignKey("MovieId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("NetfilxPractice.Models.ApplicationUser", "User")
+                        .WithMany("WatchMovieList")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Movie");
+
+                    b.Navigation("User");
+                });
+
+            modelBuilder.Entity("NetfilxPractice.Models.WatchShow", b =>
+                {
+                    b.HasOne("NetfilxPractice.Models.Show", "Show")
+                        .WithMany("WatchUsers")
+                        .HasForeignKey("ShowId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("NetfilxPractice.Models.ApplicationUser", "User")
+                        .WithMany("WatchShowList")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Show");
+
+                    b.Navigation("User");
+                });
+
+            modelBuilder.Entity("NetfilxPractice.Models.Episode", b =>
+                {
+                    b.HasOne("NetfilxPractice.Models.Show", "Show")
+                        .WithMany("Episodes")
+                        .HasForeignKey("ShowId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Show");
+                });
+
+            modelBuilder.Entity("NetfilxPractice.Models.ApplicationUser", b =>
+                {
+                    b.Navigation("FavouriteMovieList");
+
+                    b.Navigation("FavouriteShowList");
+
+                    b.Navigation("WatchMovieList");
+
+                    b.Navigation("WatchShowList");
+                });
+
+            modelBuilder.Entity("NetfilxPractice.Models.Movie", b =>
+                {
+                    b.Navigation("FavouriteUsers");
+
+                    b.Navigation("WatchUsers");
+                });
+
+            modelBuilder.Entity("NetfilxPractice.Models.Show", b =>
+                {
+                    b.Navigation("Episodes");
+
+                    b.Navigation("FavouriteUsers");
+
+                    b.Navigation("WatchUsers");
                 });
 #pragma warning restore 612, 618
         }
